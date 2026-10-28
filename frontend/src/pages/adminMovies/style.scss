@@ -1,0 +1,285 @@
+@import "../../mixins.scss";
+
+// Movie Details Popup Styles
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.movie-details-popup {
+  background: var(--bg);
+  border-radius: 10px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+  color: var(--textColor);
+
+  .close-btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--textColor);
+    z-index: 2;
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--mainColor);
+    }
+  }
+
+  .movie-details-container {
+    display: flex;
+    gap: 30px;
+    padding: 30px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding: 20px;
+    }
+  }
+
+  .movie-poster {
+    flex: 0 0 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      flex: 0 0 auto;
+      max-width: 100%;
+    }
+  }
+
+  .movie-info {
+    flex: 1;
+
+    h2 {
+      margin: 0 0 15px;
+      font-size: 28px;
+      color: var(--textColor);
+    }
+
+    .movie-meta {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+      color: var(--textSoft);
+      font-size: 15px;
+    }
+
+    .genres {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+
+      .genre {
+        background-color: var(--mainColor);
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+    }
+
+    .description {
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .cast-section {
+      h3 {
+        margin: 0 0 15px;
+        font-size: 20px;
+        color: var(--textColor);
+        border-bottom: 1px solid var(--softBg);
+        padding-bottom: 8px;
+      }
+
+      .cast-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+
+        @media (max-width: 768px) {
+          grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        }
+      }
+
+      .cast-member {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--softBg);
+        padding: 10px;
+        border-radius: 8px;
+
+        .cast-image {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          overflow: hidden;
+          flex-shrink: 0;
+          background: var(--bg);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+          .default-avatar {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--mainColor);
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+          }
+        }
+
+        .cast-details {
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+
+          .cast-name {
+            font-weight: 500;
+            font-size: 14px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .cast-role {
+            font-size: 12px;
+            color: var(--textSoft);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.adminMoviesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 10px;
+  }
+  gap: 10px;
+  padding: 20px;
+  list-style-type: none;
+  background-color: var(--bg);
+  .adminShow {
+    border-radius: 10px;
+    cursor: pointer;
+    .imageContainer {
+      border-radius: 10px;
+      position: relative;
+      height: 300px;
+      width: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .action-buttons {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 2;
+        display: flex;
+        gap: 8px;
+
+        .action-btn {
+          background-color: rgba(255, 255, 255, 0.9);
+          border: none;
+          border-radius: 50%;
+          width: 30px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+          &:hover {
+            transform: scale(1.1);
+            background-color: #fff;
+          }
+
+          &.delete {
+            color: #ff4444;
+
+            &:hover {
+              background-color: #ff4444;
+              color: white;
+            }
+          }
+        }
+      }
+      .image {
+        object-fit: cover;
+        border-radius: 10px;
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    div {
+      padding: 5px 10px;
+      .name {
+        width: 200px;
+        color: var(--textColor);
+        font-weight: bold;
+        font-size: 16px;
+      }
+      p {
+        color: var(--softTextColor);
+        font-size: 12px;
+      }
+    }
+  }
+}

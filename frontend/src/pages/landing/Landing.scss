@@ -1,0 +1,374 @@
+
+@import '../../styles/variables.scss';
+
+.landing {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
+
+  .btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin: 0 10px;
+    cursor: pointer;
+
+    &-primary {
+      background: $primary-color;
+      color: #fff;
+      border: 2px solid $primary-color;
+      box-shadow: 0 6px 20px rgba($primary-color, 0.4);
+
+      &:hover {
+        background: darken($primary-color, 10%);
+        border-color: darken($primary-color, 10%);
+        box-shadow: 0 8px 30px rgba($primary-color, 0.6);
+        transform: translateY(-3px);
+      }
+    }
+
+    &-secondary {
+      background: transparent;
+      color: #fff;
+      border: 2px solid #fff;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-3px);
+      }
+    }
+  }
+
+  // Hero Section
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url('https://source.unsplash.com/random/1920x1080/?movie,theater') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0 5%;
+
+    &-content {
+      max-width: 800px;
+      z-index: 2;
+
+      h1 {
+        font-size: 4.5rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+
+        span {
+          color: $primary-color;
+        }
+      }
+
+      p {
+        font-size: 1.5rem;
+        margin-bottom: 2.5rem;
+        opacity: 0.9;
+      }
+    }
+
+    .hero-image {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+
+      .gradient-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.9) 0%,
+          rgba(0, 0, 0, 0.7) 50%,
+          transparent 70%
+        );
+      }
+    }
+  }
+
+  // Features Section
+  .features {
+    padding: 6rem 5%;
+    background: #0f0f1a;
+    text-align: center;
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: $primary-color;
+      }
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2.5rem 2rem;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+
+      &:hover {
+        transform: translateY(-12px) scale(1.03);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      .icon {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: $primary-color;
+      }
+
+      p {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  // Now Showing Section
+  .now-showing {
+    padding: 6rem 5%;
+    background: #0a0a12;
+    text-align: center;
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: $primary-color;
+      }
+    }
+
+    .movie-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .movie-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+
+      &:hover {
+        transform: translateY(-12px) scale(1.03);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      .movie-poster {
+        width: 100%;
+        height: 320px;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.4s ease;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+
+      .movie-info {
+        padding: 1.5rem;
+        text-align: left;
+
+        h3 {
+          font-size: 1.3rem;
+          margin-bottom: 0.5rem;
+          font-weight: 600;
+        }
+
+        p {
+          font-size: 0.95rem;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+
+  // CTA Section
+  .cta {
+    padding: 6rem 5%;
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+      url('https://source.unsplash.com/random/1920x1080/?cinema,popcorn') no-repeat center center/cover;
+    text-align: center;
+
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2.5rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.9;
+    }
+  }
+
+  // Footer
+  .footer {
+    background: #0a0a12;
+    padding: 4rem 5% 2rem;
+    text-align: center;
+
+    &-logo {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: $primary-color;
+    }
+
+    &-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+
+    &-copyright {
+      opacity: 0.7;
+      font-size: 0.9rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  // Responsive Design
+  @media (max-width: 992px) {
+    .hero {
+      text-align: center;
+      justify-content: center;
+
+      &-content {
+        h1 {
+          font-size: 3.5rem;
+        }
+
+        p {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      &-content {
+        h1 {
+          font-size: 2.8rem;
+        }
+      }
+    }
+
+    .cta {
+      h2 {
+        font-size: 2.2rem;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .btn {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+    }
+
+    .hero {
+      &-content {
+        h1 {
+          font-size: 2.2rem;
+        }
+
+        p {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

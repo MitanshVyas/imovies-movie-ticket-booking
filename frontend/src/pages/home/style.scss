@@ -1,0 +1,120 @@
+@import "../../mixins.scss";
+
+.homeContainer {
+  min-height: 100vh;
+  background: var(--bg-color);
+  color: var(--textColor);
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+  
+  .home {
+    padding: 1rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-top: 5rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    .featuredMovieContainer {
+      margin-bottom: 3rem;
+      transition: all 0.3s ease;
+    }
+
+    h1 {
+      margin: 2rem 0;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      
+      span {
+        color: crimson;
+        font-weight: 700;
+      }
+      
+      @include lg {
+        font-size: 2.5rem;
+      }
+    }
+
+    .moviesContainer {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+      justify-content: center;
+      transition: all 0.3s ease;
+      
+      @include sm {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      }
+      
+      @include md {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      }
+      
+      @include lg {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+    }
+
+    .noMovies {
+      text-align: center;
+      font-size: 1.2rem;
+      color: var(--textSoft);
+      margin: 2rem 0;
+    }
+  }
+}
+
+// Skeleton Loading Styles
+.skeletonFeatured {
+  height: 400px;
+  background: var(--bgSoft);
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  animation: pulse 1.5s infinite;
+}
+
+.movieSkeleton {
+  background: var(--bgSoft);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  animation: pulse 1.5s infinite;
+  
+  .skeletonImage {
+    width: 100%;
+    padding-top: 150%;
+    background: var(--bgLighter);
+  }
+  
+  .skeletonTitle {
+    height: 20px;
+    background: var(--bgLighter);
+    margin: 0.75rem;
+    border-radius: 4px;
+  }
+  
+  .skeletonMeta {
+    height: 16px;
+    width: 70%;
+    background: var(--bgLighter);
+    margin: 0 0.75rem 0.75rem;
+    border-radius: 4px;
+  }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+// Smooth transitions for all interactive elements
+* {
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}

@@ -1,0 +1,139 @@
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  min-height: 100vh;
+  height: 100%;
+  color: var(--textColor);
+  width: 100%;
+  background-color: var(--softBg);
+  padding: 20px 10px;
+  
+  .formContainer {
+    background-color: var(--bg);
+    padding: 24px 0px;
+    width: 80%;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border-radius: 10px;
+    border: 2px solid crimson;
+    z-index: 999;
+
+    h1 {
+      margin: 0;
+      letter-spacing: 1px;
+      font-weight: 700;
+      color: crimson;
+      
+      span {
+        color: #fff;
+      }
+    }
+
+    .loginTitle {
+      font-size: 20px;
+      margin: 0;
+      letter-spacing: 1px;
+      font-weight: 500;
+      color: var(--textColor);
+    }
+
+    .inputContainer {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      
+      label {
+        margin-bottom: 10px;
+        font-weight: 500;
+        color: var(--textColor);
+        letter-spacing: 0.5px;
+      }
+
+      input {
+        border: none;
+        height: 40px;
+        padding: 0px 10px;
+        border-radius: 6px;
+        color: var(--textColor);
+        background-color: var(--softBg);
+        font-weight: 500;
+        outline: none;
+        width: 100%;
+      }
+    }
+
+    .showPass {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 80%;
+      margin-top: -10px;
+      
+      input[type="checkbox"] {
+        width: auto;
+        height: auto;
+      }
+      
+      label {
+        margin: 0;
+        font-size: 14px;
+        cursor: pointer;
+      }
+    }
+
+    .loginBtn {
+      background-color: crimson;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 80%;
+      height: 40px;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background-color: #a5122f;
+      }
+      
+      &:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
+      }
+    }
+
+    .registerLink {
+      color: var(--textColor);
+      text-decoration: none;
+      font-size: 14px;
+      margin-top: -10px;
+      
+      span {
+        color: crimson;
+        font-weight: 600;
+        cursor: pointer;
+      }
+    }
+
+    .adminLogin {
+      color: var(--textColor);
+      text-decoration: none;
+      font-size: 14px;
+      margin-top: -10px;
+      
+      span {
+        color: crimson;
+        font-weight: 600;
+        cursor: pointer;
+      }
+    }
+  }
+}
